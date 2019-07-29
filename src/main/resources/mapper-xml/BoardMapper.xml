@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.mapper.BoardMapper">
+    <insert id="addBoard">
+		INSERT INTO 
+	    	board
+	   			(
+					name,
+					password,
+					title,
+					content,
+					sysdate,
+					type
+				)
+	    	VALUES
+	   			(
+	   				#{name},
+	   				#{password},
+	   				#{title},
+	   				#{content},
+	   				NOW(),
+	   				#{type}
+				)
+    </insert>
+	<select id="getBoard" resultType="com.web.domain.Board">
+		SELECT
+			id,
+			name,
+			title,
+			content,
+			sysdate,
+			type
+		FROM
+			board
+	</select>
+	<update id="updateStatus">
+		UPDATE 
+    		board
+		SET 
+			type = #{type}
+		WHERE 
+			id = #{id}
+	</update>
+	<update id="deleteStatus">
+		UPDATE 
+    		board
+		SET 
+			type = #{type}
+		WHERE 
+			id = #{id}
+		AND
+			password = #{password}
+	</update>
+</mapper>

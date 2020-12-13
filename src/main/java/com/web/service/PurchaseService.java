@@ -13,7 +13,7 @@ import com.web.mapper.PurchaseMapper;
 
 @Service
 public class PurchaseService {
-	@Autowired PurchaseMapper purchaseMapper;
+	@Autowired private PurchaseMapper purchaseMapper;
 	public boolean addPurchase(Purchase purchase) {
 		return purchaseMapper.addPurchase(purchase);
 	}

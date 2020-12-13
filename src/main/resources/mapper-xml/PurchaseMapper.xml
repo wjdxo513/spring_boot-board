@@ -2,7 +2,7 @@
 <!DOCTYPE mapper 
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.coindelivery.mapper.PurchaseMapper">
+<mapper namespace="com.web.mapper.PurchaseMapper">
     <insert id="addPurchase">
 		INSERT INTO 
 	    	purchase
@@ -38,7 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	   				"S"
 				)
     </insert>
-	<select id="getPurchaseAll" resultType="com.coindelivery.domain.Purchase">
+	<select id="getPurchaseAll" resultType="com.web.domain.Purchase">
 		SELECT
 			id,
 			coinType,
@@ -56,7 +56,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM
 			purchase
 	</select>
-	<select id="getPurchase" resultType="com.coindelivery.domain.Purchase">
+	<select id="getPurchase" resultType="com.web.domain.Purchase">
 		SELECT
 			id,
 			coinType,

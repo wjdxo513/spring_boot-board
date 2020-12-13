@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 import com.web.domain.Board;
-import com.web.service.BoardService;
-
 @Controller
 public class IndexController {
 	@RequestMapping(value="/", method=RequestMethod.GET)

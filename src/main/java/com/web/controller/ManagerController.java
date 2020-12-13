@@ -8,9 +8,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+import com.web.service.PurchaseService;
 
 @Controller
 public class ManagerController {
+	@Autowired private PurchaseService purchaseService;
+	
 	@RequestMapping(value="/manager", method=RequestMethod.GET)
 	public String manager() {
 		return "manager/purchase";
@@ -32,7 +35,7 @@ public class ManagerController {
 		return "manager/log";
 	}
 
-	/*@RequestMapping(value = "/manager/purchase/all/json", method=RequestMethod.GET)
+	@RequestMapping(value = "/manager/purchase/all/json", method=RequestMethod.GET)
 	@ResponseBody
 	public String getPurchaseAll () {
 		return new Gson().toJson(purchaseService.getPurchaseAll());
@@ -43,5 +46,5 @@ public class ManagerController {
 			@RequestParam(value="status") String status,
 			@RequestParam(value="id") int id) {
 		return new Gson().toJson(purchaseService.updateStatus(status, id));
-	}*/
+	}
 }

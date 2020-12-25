@@ -1,5 +1,6 @@
 # 글 등록, 이미지 첨부, 계층형 댓글구조의 간단한 게시판
 
+---
 
 ### 글 등록
 ![글 등록](https://user-images.githubusercontent.com/36690237/103134406-5fe8f800-46f4-11eb-8e32-f4a0b518b080.gif)

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- 
+http://localhost:8080/web/board
+
+CREATE TABLE `tb_reply` (
+  `idx` INT NOT NULL AUTO_INCREMENT,
+  `board_idx` INT,
+  `reply_idx` INT,
+  `contents` TEXT NULL,
+  PRIMARY KEY (`idx`));
+
+CREATE TABLE `tb_board` (
+  `idx` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(255) NULL,
+  `contents` TEXT NULL,
+  `image` VARCHAR(255) NULL,
+  PRIMARY KEY (`idx`));
+ -->
+<mapper namespace="com.web.mapper.BoardMapper">
+    <insert id="addBoard">
+		INSERT INTO 
+	    	tb_board
+	   			(
+					title,
+					image,
+					contents
+				)
+	    	VALUES
+	   			(
+	   				#{title},
+	   				#{image},
+	   				#{contents}
+				)
+    </insert>
+	<select id="getBoard" resultType="com.web.domain.Board">
+		SELECT
+			idx, title, image, contents
+		FROM
+			tb_board
+		ORDER BY idx asc
+	</select>
+	<select id="getBoardOne" resultType="com.web.domain.Board">
+		SELECT
+			idx, title, image, contents
+		FROM
+			tb_board
+		WHERE
+			idx = #{idx}
+	</select>
+    <insert id="addReply">
+		INSERT INTO 
+	    	tb_reply
+	   			(
+					board_idx,
+					reply_idx,
+					contents
+				)
+	    	VALUES
+	   			(
+	   				#{boardIdx},
+	   				#{replyIdx},
+	   				#{contents}
+				)
+    </insert>
+	<select id="getReply" resultType="com.web.domain.Reply">
+		SELECT
+			idx, board_idx as boardIdx, reply_idx as replyIdx, contents
+		FROM
+			tb_reply
+		WHERE
+			board_idx = #{boardIdx}
+		order by reply_idx asc
+	</select>
+</mapper>

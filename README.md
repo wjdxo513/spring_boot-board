@@ -21,3 +21,5 @@ CREATE TABLE `tb_board` (
   `contents` TEXT NULL,
   `image` VARCHAR(255) NULL,
   PRIMARY KEY (`idx`));
+
+<img width="325" alt="이미지 38" src="https://user-images.githubusercontent.com/36690237/103128915-4d61c500-46da-11eb-8feb-a6a010c758cb.png">
